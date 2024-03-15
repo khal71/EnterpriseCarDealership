@@ -1,0 +1,88 @@
+﻿@page
+@model EnterpriseCarDealership.Pages.CRUDCarBooking.IndexCarBookingModel
+@{
+}
+@*Jakob*@
+<table>
+    <thead>
+        @*de følgende knapper er forbundet med sorterings etoder i controller delen*@
+        <tr>
+            <th>
+                <form asp-page-handler="Id" class="form-control" method="post">
+                    <div class="input-field">
+                        <div class="bx bx-user">
+                            <button type="submit" class="btn btn-dark">ID </button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+       
+            <th>
+                <form asp-page-handler="StartTime" class="form-control" method="post">
+                    <div class="input-field">
+                        <div class="bx bx-user">
+                            <button type="submit" class="btn btn-dark">StartTime </button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+       
+            <th>
+                <form asp-page-handler="EndTime" class="form-control" method="post">
+                    <div class="input-field">
+                        <div class="bx bx-user">
+                            <button type="submit" class="btn btn-dark">EndTime </button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+       
+            <th>
+                <form asp-page-handler="KundeId" class="form-control" method="post">
+                    <div class="input-field">
+                        <div class="bx bx-user">
+                            <button type="submit" class="btn btn-dark">Kunde ID </button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+        
+            <th>
+                <form asp-page-handler="CarId" class="form-control" method="post">
+                    <div class="input-field">
+                        <div class="bx bx-user">
+                            <button type="submit" class="btn btn-dark">Car ID </button>
+                        </div>
+                    </div>
+                </form>
+            </th>    
+          
+        </tr>
+            </thead>
+    <tbody>
+        @if (Model.carBookings.Count == 0)
+        {
+            <p>Empty list</p>
+        }
+        else
+        @*den følgende foreach loop henter attributter for hver attribut af carbooking model. de knapper har delete funktionen og redirect til update page og see payment page*@
+        {
+            foreach (var s in Model.carBookings)
+            {
+                <tr>
+                    <td>@s.Id</td>
+                    <td>@s.StartTime</td>
+                    <td>@s.EndTime</td>
+                    <td>@s.KundeId</td>
+                    <td>@s.CarId</td>
+                   
+                    <td><form asp-page-handler="Delete" asp-route-id="@s.Id"><button type="submit" class="btn btn-dark">Delete Car Booking </button></form></td>
+                    <td><a asp-page="UpdateCarBooking" asp-route-id="@s.Id"><button type="submit" class="btn btn-dark">Update Car Booking </button></a></td>
+                    <td><a asp-page="CarPayment" asp-route-id="@s.Id"><button type="submit" class="btn btn-dark">See Payment</button> </a></td>
+                </tr>
+            }
+        }
+        <a asp-page="/CRUDCarBooking/CreateCarBooking" class="btn btn-dark">Create new car Booking </a>
+        <a asp-page="/Management/Management" class="btn btn-dark">Management</a>
+    </tbody>
+</table>

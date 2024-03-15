@@ -1,0 +1,189 @@
+﻿@page
+@model EnterpriseCarDealership.Pages.CRUDBike.IndexBikeModel
+@{
+}
+@*  //Jakob*@
+<table>
+    <thead>
+        <tr>
+            @*den Følgende metode er forbundet med methoden Filter max og de checkboxes er forbundet med filterings metoder for nogle af attributter*@
+            <form asp-page-handler="FilterMax" class="form-horizontal" method="post">
+            <div class="form-group">
+            <div class="col-2">
+            <input type="number" class="form-control" name="MaxPris" asp-for="@Model.MaxPris" value="@Model.MaxPris">
+            </div>
+
+            <br />
+            <input type="checkbox"  value=true  asp-for="Sidebike" />SideBike
+            <br />
+            <input type="checkbox" value=true asp-for="LeatherSddle" />LeatherSddle
+            <br />
+            <input type="checkbox" value=true asp-for="ExtraStorage" />ExtraStprage
+            <br />
+
+            </div>
+            <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-dark">Max Pris</button>
+            </div>
+            </div>
+            </form>
+        </tr>
+        <tr>
+            @*den Følgende metode er forbundet med methoden Filter min og de radio er forbundet med filterings metoder for nogle af attributter*@
+            <form asp-page-handler="FilterMin" class="form-horizontal" method="post">
+                <div class="form-group">
+                    <div class="col-2">
+                        <input type="number" class="form-control" name="MinPris" asp-for="@Model.MinPris" value="@Model.MinPris">
+                    </div>
+
+                    <br />
+                    <input type="radio"  value=true asp-for="Sidebike" />SideBike
+                    <br />
+                    <input type="radio" value=true asp-for="LeatherSddle" />LeatherSddle
+                    <br />
+                    <input type="radio" value=true asp-for="ExtraStorage" />ExtraStprage
+                    <br />
+
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-dark">Min Pris</button>
+                    </div>
+                </div>
+            </form>
+            @*de følgende knapper er forbundet med sorterings etoder i controller delen*@
+            <form asp-page-handler="Sort" class="form-horizontal" method="post">
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-dark">View List</button>
+                    </div>
+                </div>
+            </form>
+        </tr>
+    </thead>
+
+    <thead>
+        <tr>
+            <th>
+                <form asp-page-handler="Id" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-dark">Id</button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+      
+       
+            <th>
+                <form asp-page-handler="Brand" class="form-horizontal" method="post">
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-dark">Brand</button>
+                    </div>
+                </div>
+                </form>
+            </th>
+      
+            <th>
+                <form asp-page-handler="Type" class="form-horizontal" method="post">
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-dark">Type</button>
+                    </div>
+                </div>
+                </form>
+            </th>
+        
+            <th>
+                <form asp-page-handler="PrisPrDag" class="form-horizontal" method="post">
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-dark">PrisPrDag</button>
+                    </div>
+                </div>
+                </form>
+            </th>
+       
+            <th>
+                <form asp-page-handler="Year" class="form-horizontal" method="post">
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-dark">Year</button>
+                    </div>
+                </div>
+                </form>
+            </th>
+      
+            <th>
+                <form asp-page-handler="Km" class="form-horizontal" method="post">
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-dark">Km</button>
+                    </div>
+                </div>
+                </form>
+            </th>
+      
+            <th>
+                <form asp-page-handler="SideBike" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-dark">SideBike</button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+     
+            <th>
+                <form asp-page-handler="LeatherSdlle" class="form-horizontal" method="post">
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-dark">LeatherSdlle</button>
+                    </div>
+                </div>
+                </form>
+            </th>
+        
+            <th>
+                <form asp-page-handler="ExtraStorage" class="form-horizontal" method="post">
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-dark">ExtraStorage</button>
+                    </div>
+                </div>
+                </form>
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @*den følgende foreach loop henter attributter for hver attribut af bike model. de knapper har delete funktionen og redirect til update page *@
+        @if (Model.bikes.Count == 0)
+        {
+            <p>Empty list</p>
+        }
+        else
+        {
+            foreach (var s in Model.bikes)
+            {
+                <tr>
+                    <td>@s.NextId</td>
+                    <td>@s.Brand</td>
+                    <td>@s.Type</td>
+                    <td>@s.PrisPrDag</td>
+                    <td>@s.Year</td>
+                    <td>@s.Km</td>
+                    <td>@s.Sidebike</td>
+                    <td>@s.LeatherSddle</td>
+                    <td>@s.ExtraStorage</td>
+                    <td><form asp-page-handler="Delete" asp-route-id="@s.NextId"><button type="submit" class="btn btn-dark">Delete Bike </button></form></td>
+                    <td><a asp-page="UpdateBike" asp-route-id="@s.NextId"><button type="submit" class="btn btn-dark">Update Bike</button> </a></td>
+                </tr>
+            }
+        }
+        <a asp-page="/CRUDBike/CreateBike" class="btn btn-dark">Create new Bike </a>
+        <a asp-page="/Management/Management" class="btn btn-dark">Management</a>
+    </tbody>
+</table>

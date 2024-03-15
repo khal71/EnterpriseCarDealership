@@ -1,0 +1,100 @@
+﻿@page
+@model EnterpriseCarDealership.Pages.CRUDManager.IndexManagerModel
+@{
+}
+@*Jakob*@
+<table>
+    <thead>
+        @*de følgende knapper er forbundet med sorterings etoder i controller delen*@
+        <form asp-page-handler="Sort" class="form-horizontal" method="post">
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-dark">View List</button>
+                </div>
+            </div>
+        </form>
+    </thead>
+     <thead>
+            <tr>
+                <th> <form asp-page-handler ="Id" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-dark">ID </button>
+                        </div>
+                    </div> 
+                    </form>
+                </th>
+                
+                <th> <form asp-page-handler ="Name" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-dark">Name </button>
+                        </div>
+                    </div> 
+                    </form>
+                </th>
+               
+                <th> 
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-dark">Password </button>
+                        </div>
+                    </div> 
+                    
+                </th>
+               
+                <th> 
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-dark">Medarbejder </button>
+                        </div>
+                    </div> 
+                    
+               
+                <th> 
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-dark">Administrator </button>
+                        </div>
+                    </div> 
+                    
+                </th>
+      
+            <th>
+                <form asp-page-handler="tlf" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-dark">tlf </button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+            </tr>
+            </thead>
+    <tbody>
+        @if (Model.managers.Count == 0)
+        {
+            <p>Empty list</p>
+        }
+        else
+        {
+            foreach (var s in Model.managers)
+
+            @*den følgende foreach loop henter attributter for hver attribut af bike model. de knapper har delete funktionen og redirect til update page *@
+            {
+                <tr>
+                    <td>@s.NextId</td>
+                    <td>@s.Name</td>
+                    <td>@s.Password</td>
+                    <td>@s.IsMedarbejder</td>
+                    <td>@s.IsAdmin</td>
+                    <td>@s.Tlf</td>
+                    <td><form asp-page-handler="Delete" asp-route-id="@s.NextId"><button type="submit"  class="btn btn-dark">Delete Manager </button></form></td>
+                    <td><a asp-page="UpdateManager" asp-route-id="@s.NextId" ><button type="submit" class="btn btn-dark">Update Manager</button> </a></td>
+                </tr>
+            }
+        }
+        <a asp-page="/CRUDManager/CreateManager" class="btn btn-dark">Create new manager </a>
+        <a asp-page="/Management/Management" class="btn btn-dark">Management</a>
+    </tbody>
+</table>

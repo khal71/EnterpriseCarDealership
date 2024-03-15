@@ -1,0 +1,130 @@
+﻿@page
+@model EnterpriseCarDealership.Pages.CRUDCar.CreateCarModel
+@{
+}
+@*Khaled*@
+<div class="container border" style="padding:20px">
+    <form method="post">
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+
+          @* de følgende input fields er forbundet med de relaterede attributter i controller delen*@
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="createCar.Brand"></label>
+            </div>
+            
+            <div class="col-5">
+                <input type="text" asp-for="createCar.Brand" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="createCar.Brand"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="createCar.Type"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for="createCar.Type" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="createCar.Type"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="createCar.PrisPrDag"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for="createCar.PrisPrDag" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="createCar.PrisPrDag"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="createCar.Year"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for="createCar.Year" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="createCar.Year"></span>
+        </div>
+
+          <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="createCar.Km"></label>
+          </div>
+            <div class="col-5">
+                <input type="text" asp-for="createCar.Km" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="createCar.Km"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="createCar.AC"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for="createCar.AC" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="createCar.AC"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="createCar.Sunroof"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for="createCar.Sunroof" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="createCar.Sunroof"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="createCar.Screen"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for="createCar.Screen" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="createCar.Screen"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="createCar.DVD"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for="createCar.DVD" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="createCar.DVD"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="createCar.Camera"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for="createCar.Camera" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="createCar.Camera"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="createCar.Sensor"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for="createCar.Sensor" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="createCar.Sensor"></span>
+        </div>
+           @*knappen er forbundet med funktionen oppost i controller delen*@
+        <div class="form-group row">
+            <div class="col-2">
+                <input type="submit" class="btn btn-dark" value="CreateCar" />
+            </div>
+            <div class="col-5">
+            </div>
+        </div>
+    </form>
+</div>

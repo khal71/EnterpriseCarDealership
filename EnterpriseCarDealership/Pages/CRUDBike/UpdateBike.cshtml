@@ -1,0 +1,98 @@
+﻿@page
+@model EnterpriseCarDealership.Pages.CRUDBike.UpdateBikeModel
+@{
+}
+@*  //Jakob*@
+<div class="container border" style="padding:20px">
+    <form id="@Model.bike.NextId" method="post">
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+@*de følgende input fields tager de tilsvarende attributter af klassen Bike
+        *@
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="bike.Brand"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" value="@Model.bike.Brand" asp-for="bike.Brand" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="bike.Brand"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="bike.Type"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" value="@Model.bike.Type" asp-for="bike.Type" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="bike.Type"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="bike.PrisPrDag"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" value="@Model.bike.PrisPrDag" asp-for="bike.PrisPrDag" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="bike.PrisPrDag"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="bike.Year"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" value="@Model.bike.Year" asp-for="bike.Year" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="bike.Year"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="bike.Km"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" value="@Model.bike.Km" asp-for="bike.Km" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="bike.Km"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="bike.Sidebike"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" value="@Model.bike.Sidebike" asp-for="bike.Sidebike" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="bike.Sidebike"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="bike.LeatherSddle"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" value="@Model.bike.LeatherSddle" asp-for="bike.LeatherSddle" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="bike.LeatherSddle"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="bike.ExtraStorage"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" value="@Model.bike.ExtraStorage" asp-for="bike.ExtraStorage" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="bike.ExtraStorage"></span>
+        </div>
+        @*den følgende knap er forbundet til metoden op post i controller delen som opdaterer*@
+        <div class="form-group row">
+            <div class="col-2">
+                <input type="submit" class="btn btn-dark" value="UpdateBike" />
+            </div>
+            <div class="col-5">
+            </div>
+        </div>
+    </form>
+   
+</div>

@@ -1,0 +1,26 @@
+﻿@page
+@model EnterpriseCarDealership.Pages.CRUDBikeBooking.BikePaymentModel
+@{
+}
+@*Jakob*@
+<h1>Payment</h1>
+@*følgende modeller henter id'er fra booking*@
+<p>Bike ID: @Model.bikebooking.BikeId</p>
+<p>Booking ID: @Model.bikebooking.Id</p>
+@*den del kalder og kalkulerer prisen*@
+@if (Model.TotalPrice > 0)
+{
+    <p>Total price: @Model.TotalPrice</p>
+}
+else
+{
+    <p>No payment calculation available.</p>
+}
+@*knap til at go til index*@
+<form asp-page-handler="Back" class="form-horizontal" method="post">
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-dark">Index</button>
+        </div>
+    </div>
+</form>

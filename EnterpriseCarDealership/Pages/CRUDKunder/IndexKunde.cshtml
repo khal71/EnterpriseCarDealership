@@ -1,0 +1,114 @@
+﻿@page
+@model EnterpriseCarDealership.Pages.CRUDKunder.IndexKundeModel
+@{
+}
+@*  //Jakob*@
+<div>
+<table class="table table-hover">
+    <thead>
+            @*de følgende knapper er forbundet med sorterings etoder i controller delen*@
+            <form asp-page-handler="Sort" class="form-horizontal" method="post">
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-dark">View List</button>
+                    </div>
+                </div>
+            </form>
+    </thead>
+    <thead>
+        <tr>
+            <th>
+                <form asp-page-handler="Id" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-dark">Id</button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+
+
+            <th>
+                <form asp-page-handler="Name" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-dark">Name</button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+
+            <th>
+                <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-dark">Password</button>
+                        </div>
+                </div>
+            </th>
+
+            <th>
+                <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-dark">IsMedarbejder</button>
+                        </div>
+                </div>
+            </th>
+
+            <th>
+                <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-dark">IsAdmin</button>
+                        </div>
+                </div>
+            </th>
+
+            <th>
+                <form asp-page-handler="Tlf" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-dark">Tlf</button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+
+            <th>
+                <form asp-page-handler="Adress" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-dark">Adress</button>
+                        </div>
+                    </div>
+                </form>
+            </th> 
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (Model.kunder.Count == 0)
+        {
+            <p>Empty list</p>
+        }
+        else
+        {
+            foreach (var s in Model.kunder)
+            {
+                    @*den følgende foreach loop henter attributter for hver attribut af bike model. de knapper har delete funktionen og redirect til update page *@
+                <tr>
+                    <td>@s.NextId</td>
+                    <td>@s.Name</td>
+                    <td>@s.Password</td>
+                    <td>@s.IsMedarbejder</td>
+                    <td>@s.IsAdmin</td>
+                    <td>@s.Tlf</td>
+                    <td>@s.Adress</td>
+                    <td><form asp-page-handler="Delete" asp-route-id="@s.NextId"><button type="submit" class="btn btn-dark">Delete Kunde </button></form></td>
+                    <td><a asp-page="UpdateKunde" asp-route-id="@s.NextId"><button type="submit" class="btn btn-dark">Update Kunde </button></a></td>
+                </tr>
+            }
+        }
+            <a asp-page="/CRUDKunder/CreateKunde" class="btn btn-dark">Create new Kunde </a>
+            <a asp-page="/Management/Management" class="btn btn-dark">Management</a>
+    </tbody>
+</table>
+</div>

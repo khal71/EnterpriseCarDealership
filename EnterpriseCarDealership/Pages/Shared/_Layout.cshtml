@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    @*khaled*@
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Enterprise </title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/EnterpriseCarDealership.styles.css" asp-append-version="true" />
+</head>
+<body>
+    @* her har vi vores nav bar den har knapper til forskilige sider og der er også en dropdown til vores vechiels og vi har lagt vores logo på nav bar*@
+    <header>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark nav" >
+  <div class="container-fluid">
+                <a class="navbar-brand" asp-page="/Index"><img class="logo" src="~/css/image/enterprise.png" /></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        
+        
+ 
+                
+        <li class="nav-item">
+        <a class="nav-link"  asp-page="/AboutUs">About us</a>
+        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Rental</a>
+                            <ul class="dropdown-menu">
+                                
+                                <li><a class="dropdown-item" asp-page="/CRUDCar/ViewCar">Cars</a></li>
+
+                                <li><a class="dropdown-item" asp-page="/CRUDBike/ViewBike">Bikes</a></li>
+                                
+
+                                <li><hr class="dropdown-divider"</li>
+                                <li><a class="dropdown-item" asp-page="/CRUDCarBooking/CreateCarBooking">Car Booking</a></li>
+                                <li><a class="dropdown-item" asp-page="/CRUDBikeBooking/CreateBikeBooking">Bike Booking</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" asp-page="/CRUDKunder/CreateKunde">Sign up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-page="/login/login">My account</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-page="/Map/Map">Our Location</a>
+                        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+@* vi har lagt vores video method i layout også så den er der på alle vores sider*@
+        <div class="video-container">
+
+            <video autoplay loop muted plays-inline class="back-video">
+                <source src="~/video/pexels-mikhail-nilov-7461082-1920x1080-25fps.mp4" type="video/mp4" />
+            </video>
+
+        </div>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+ 
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,130 @@
+﻿@page "{id:int}"
+@model EnterpriseCarDealership.Pages.CRUDCar.UpdateCarModel
+@{
+}
+@*Khaled*@
+<div class="container border" style="padding:20px">
+    <form asp-route-id="Model.existingCar.NextId" method="post">
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+
+        @*de følgende input fields tager de tilsvarende attributter af klassen Car*@
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="car.Brand"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" value="@Model.existingCar.Brand" asp-for="car.Brand" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="car.Brand"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="car.Type"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" value="@Model.existingCar.Type" asp-for="car.Type" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="car.Type"></span>
+        </div>
+
+          <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="car.PrisPrDag"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" value="@Model.existingCar.PrisPrDag" asp-for="car.PrisPrDag" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="car.PrisPrDag"></span>
+        </div>
+
+          <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="car.Year"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" value="@Model.existingCar.PrisPrDag" asp-for="car.PrisPrDag" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="car.PrisPrDag"></span>
+        </div>
+
+          
+          <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="car.Km"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" value="@Model.existingCar.Km" asp-for="car.Km" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="car.Km"></span>
+        </div>
+
+          <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="car.AC"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" value="@Model.existingCar.AC" asp-for="car.AC" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="car.AC"></span>
+        </div>
+
+          <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="car.Sunroof"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" value="@Model.existingCar.Sunroof" asp-for="car.Sunroof" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="car.Sunroof"></span>
+        </div>
+
+          <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="car.Screen"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" value="@Model.existingCar.Screen" asp-for="car.Screen" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="car.Screen"></span>
+        </div>
+
+          <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="car.DVD"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" value="@Model.existingCar.DVD" asp-for="car.DVD" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="car.DVD"></span>
+        </div>
+
+          <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="car.Camera"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" value="@Model.existingCar.Camera" asp-for="car.Camera" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="car.Camera"></span>
+        </div>
+
+          <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="car.Sensor"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" value="@Model.existingCar.Sensor" asp-for="car.Sensor" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="car.Sensor"></span>
+        </div>
+
+           @*den følgende knap er forbundet til metoden op post i controller delen som opdaterer*@
+        <div class="form-group row">
+            <div class="col-2">
+                <input type="submit" class="btn btn-dark" value="UpdateCar" />
+            </div>
+            <div class="col-5">
+            </div>
+        </div>
+    </form>
+</div

@@ -1,0 +1,203 @@
+﻿@page
+
+@model EnterpriseCarDealership.Pages.CRUDBike.ViewBikeModel
+@{
+}
+@*  //Jakob*@
+<table>
+    <thead>
+        <tr>
+            <form asp-page-handler="FilterMax" class="form-horizontal" method="post">
+                @*den Følgende metode er forbundet med methoden Filter max og de checkboxes er forbundet med filterings metoder for nogle af attributter*@
+                <div class="form-group">
+                    <div class="col-2">
+                        <input type="number" class="form-control" name="MaxPris" asp-for="@Model.MaxPris" value="@Model.MaxPris">
+                    </div>
+
+                    <br />
+                    <input type="checkbox"  value=true asp-for ="Sidebike" />SideBike
+                    <br />
+                    <input type="checkbox" value=true asp-for="LeatherSddle" />LeatherSddle
+                    <br />
+                    <input type="checkbox" value=true asp-for="ExtraStorage" />ExtraStprage
+                    <br />
+
+                </div>
+                <div class="form-group">
+                    <div class="input-field">
+                        <button style="width: 200px" type="submit" class="btn btn-dark">Max Price</button>
+                    </div>
+                </div>
+            </form>
+        </tr>
+        <tr>
+            @*den Følgende metode er forbundet med methoden Filter min og de radio er forbundet med filterings metoder for nogle af attributter*@
+            <form asp-page-handler="FilterMin" class="form-horizontal" method="post">
+                <div class="form-group">
+                    <div class="col-2">
+                        <input type="number" class="form-control" name="MinPris" asp-for="@Model.MinPris" value="@Model.MinPris">
+                    </div>
+
+                    <br />
+                    <input type="radio"  value=true asp-for ="Sidebike" />SideBike
+                    <br />
+                    <input type="radio" value=true asp-for="LeatherSddle" />LeatherSddle
+                    <br />
+                    <input type="radio" value=true asp-for="ExtraStorage" />ExtraStprage
+                    <br />
+
+                </div>
+                <div class="form-group">
+                    <div class="input-field">
+                        <button type="submit" style="width: 200px; margin-bottom: 10px" class="btn btn-dark">Min Price </button>
+                    </div>
+                </div>
+            </form>
+            @*de følgende knapper er forbundet med sorterings etoder i controller delen*@
+            <form asp-page-handler="Sort" class="form-horizontal" method="post">
+                <div class="form-group">
+                    <div class="input-field">
+                        <button style="width: 200px;" type="submit" class="btn btn-dark">All </button>
+                    </div>
+                </div>
+            </form>
+        </tr>
+    </thead>
+
+    <thead>
+        <tr>
+            <th>
+                <form asp-page-handler="Id" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="input-field">
+                            <button type="submit" class="btn btn-dark">Id</button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+
+
+            <th>
+                <form asp-page-handler="Brand" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="input-field">
+                            <button type="submit" class="btn btn-dark">Brand</button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+
+            <th>
+                <form asp-page-handler="Type" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="input-field">
+                            <button type="submit" class="btn btn-dark">Type</button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+
+            <th>
+                <form asp-page-handler="PrisPrDag" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="input-field">
+                            <button type="submit" class="btn btn-dark">PrisPrDag</button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+
+            <th>
+                <form asp-page-handler="Year" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="input-field">
+                            <button type="submit" class="btn btn-dark">Year</button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+
+            <th>
+                <form asp-page-handler="Km" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="input-field">
+                            <button type="submit" class="btn btn-dark">KM</button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+
+            <th>
+                <form asp-page-handler="SideBike" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="input-field">
+                            <button type="submit" class="btn btn-dark">SideBike</button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+
+            <th>
+                <form asp-page-handler="LeatherSdlle" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="input-field">
+                            <button type="submit" class="btn btn-dark">LeatherSdlle</button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+
+            <th>
+                <form asp-page-handler="ExtraStorage" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="input-field">
+                            <button type="submit" class="btn btn-dark">ExtraStorage</button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <div class="container-fluid">
+            <div class="row">
+        @if (Model.bikes.Count == 0)
+        {
+            <p>Empty list</p>
+        }
+        else
+        {
+                    @*den følgende foreach loop henter attributter for hver attribut af bike model. den knap er tilknuttet til booking *@
+                    foreach (var s in Model.bikes)
+                    {
+                    <div class="card">
+                        <div class="card-header">
+                            @s.Brand - @s.Type
+                        </div>
+
+                        <div class="card-body"style="font-size:small">
+                            <img class="bike-image" src="~/css/image/8-2-motorcycle-transparent.png" alt="bike Image">
+                            <ul>
+                                <li>@s.NextId</li>
+                                <li>Brand:@s.Brand</li>
+                                <li>Type:@s.Type</li>
+                                <li>Price per day:@s.PrisPrDag</li>
+                                <li>Year:@s.Year</li>
+                                <li>KM:@s.Km</li>
+                                <li>Side Bike:@s.Sidebike</li>
+                                <li>Leather Saddle:@s.LeatherSddle</li>
+                                <li>Extra Storage:@s.ExtraStorage</li>
+                            </ul>
+
+                            <a class="btn btn-dark" href="/CRUDBikeBooking/CreateBikeBooking?id=@s.NextId">Go to Booking</a>
+                        </div>
+                    </div>
+                    }
+                
+            
+        }
+        </div>
+        </div>
+    </tbody>
+</table> 

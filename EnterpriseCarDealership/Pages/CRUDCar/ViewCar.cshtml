@@ -1,0 +1,258 @@
+﻿@page
+@model EnterpriseCarDealership.Pages.CRUDCar.ViewCarModel
+@{
+}
+@*Khaled*@
+<table>
+    <thead >
+        
+        <tr>
+             
+            <form asp-page-handler="FilterMax" class="form-horizontal" method="post">
+                @*den Følgende metode er forbundet med methoden Filter max og de checkboxes er forbundet med filterings metoder for nogle af attributter*@
+                    <div class="form-group">
+                    <div class="col-2">
+                    <input type="number" class="form-control" name="MaxPris" asp-for="@Model.MaxPris" value="@Model.MaxPris">
+                    </div>
+                    <br />
+                    <input type="checkbox"  value=true asp-for ="AC" />AC
+                    <br />
+                    <input type="checkbox" value=true asp-for="Sunroof" />Sunroof
+                    <br />
+                    <input type="checkbox" value=true asp-for="Screen" />Screen
+                    <br />
+                    <input type="checkbox" value=true asp-for="DVD" />DVD
+                    <br />
+                    <input type="checkbox" value=true asp-for="Camera" />Camera
+                    <br />
+                    <input type="checkbox" value=true asp-for="Sensor" />Sensor
+                    <br />
+
+
+
+                </div>
+                <div class="form-group">
+                <div class="input-field">
+                <button style="width: 200px" type="submit" class="btn btn-dark">Max Price</button>
+                </div>
+                </div>
+                    </div>
+                </div>
+            </form>
+            
+        </tr>
+
+        <tr>
+
+            <form  asp-page-handler="FilterMin"  class="form-horizontal" method="post">
+                @*den Følgende metode er forbundet med methoden Filter min og de radio er forbundet med filterings metoder for nogle af attributter*@
+                <div class="form-group">
+                    <div class="col-2">
+                        <input type="number" class="form-control" name="MinPris" asp-for="@Model.MinPris" value="@Model.MinPris">
+                    </div>
+
+                    <br />
+                    <input type="radio"  value=true asp-for ="AC" />AC
+                    <br />
+                    <input type="radio" value=true asp-for="Sunroof" />Sunroof
+                    <br />
+                    <input type="radio" value=true asp-for="Screen" />Screen
+                    <br />
+                    <input type="radio" value=true asp-for="DVD" />DVD
+                    <br />
+                    <input type="radio" value=true asp-for="Camera" />Camera
+                    <br />
+                    <input type="radio" value=true asp-for="Sensor" />Sensor
+                    <br />
+
+                </div>
+                <div class="form-group">
+                  <div class="input-field">
+                <button type="submit" style="width: 200px; margin-bottom: 10px"   class="btn btn-dark">Min Price </button>
+            </div>
+                </div>
+                </div>
+                </div>
+            </form>
+        </tr>
+
+        <tr>
+            <form asp-page-handler="All" class="form-horizontal" method="post">
+                <div class="form-group">
+                    <div class="input-field">
+                        <button style="width: 200px;" type="submit" class="btn btn-dark">All </button>
+                    </div>
+                </div>
+            </form>
+        </tr>
+    </thead>
+    @*de følgende knapper er forbundet med sorterings etoder i controller delen*@
+    <thead>
+        <tr>
+            <th>
+                <form asp-page-handler="Id" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="input-field">
+                            <button type="submit" class="btn btn-dark">Id </button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+
+
+            <th>
+                <form asp-page-handler="Brand" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="input-field">
+                            <button type="submit" class="btn btn-dark">Brand </button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+
+            <th>
+                <form asp-page-handler="Type" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="input-field">
+                            <button type="submit" class="btn btn-dark">Type</button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+
+            <th>
+                <form asp-page-handler="PrisPrDag" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="input-field">
+                            <button type="submit" class="btn btn-dark">Pris</button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+
+            <th>
+                <form asp-page-handler="Year" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="input-field">
+                            <button type="submit" class="btn btn-dark">Year</button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+
+            <th>
+                <form asp-page-handler="Km" class="form-horizontal" method="post">
+                    <div class="form-group">
+                <div class="input-field">
+                <button type="submit" class="btn btn-dark">KM</button>
+            </div>
+                    </div>
+                </form>
+            </th>
+
+            <th>
+                <form asp-page-handler="AC" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="input-field">
+                            <button type="submit" class="btn btn-dark">AC</button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+
+            <th>
+                <form asp-page-handler="Sunroof" class="form-horizontal" method="post">
+                    <div class="form-group">
+                      <div class="input-field">
+                <button type="submit" class="btn btn-dark">Sunroof</button>
+            </div>
+                    </div>
+                </form>
+            </th>
+
+            <th>
+                <form asp-page-handler="Screen" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="input-field">
+                            <button type="submit" class="btn btn-dark">Screen</button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+
+            <th>
+                <form asp-page-handler="DVD" class="form-horizontal" method="post">
+                    <div class="form-group">
+                   <div class="input-field">
+                <button type="submit" class="btn btn-dark">DVD</button>
+            </div>
+                    </div>
+                </form>
+            </th>
+
+
+
+            <th>
+                <form asp-page-handler="Camera" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="input-field">
+                            <button type="submit" class="btn btn-dark">Camera</button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+
+            <th>
+                <form asp-page-handler="Sensor" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="input-field">
+                            <button type="submit" class="btn btn-dark">Sensor</button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @*den følgende foreach loop henter attributter for hver attribut af bike model. den knap er tilknuttet til booking *@
+        @if (Model.cars.Count == 0)
+        {
+            <p>NO Car found </p>
+        }
+        else
+        {
+            <div class="container-fluid">
+                <div class="row">
+
+                    @foreach (var s in Model.cars)
+                    {
+                        <div class="card">
+                            <div class="card-header">
+                                @s.Brand - @s.Type
+                            </div>
+                            <div class="card-body" style="font-size:small">
+                                <img class="car-image" src="~/css/image/bmw-7-series-mp-modellfinder.png" alt="Car Image">
+                                <ul>
+                                    <li>Price per Day: @s.PrisPrDag</li>
+                                    <li>Year: @s.Year</li>
+                                    <li>Mileage: @s.Km</li>
+                                    <li>AC: @s.AC</li>
+                                    <li>Sunroof: @s.Sunroof</li>
+                                    <li>Screen: @s.Screen</li>
+                                    <li>DVD: @s.DVD</li>
+                                    <li>Camera: @s.Camera</li>
+                                    <li>Sensor: @s.Sensor</li>
+                                </ul>
+                                <a class="btn btn-dark" href="/CRUDCarBooking/CreateCarBooking?id=@s.NextId">Go to Booking</a>
+                            </div>
+                        </div>
+                     
+
+                    }
+                </div>
+            </div>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,69 @@
+﻿@page "{id:int}"
+@model EnterpriseCarDealership.Pages.CRUDManager.UpdateManagerModel
+@{
+}
+@*Jakob*@
+<div class="container border" style="padding:20px">
+    <form id="@Model.existingManager.NextId" method="post">
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+
+        @*de følgende input fields tager de tilsvarende attributter af klassen Manager*@
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="manager.Name"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" value="@Model.existingManager.Name" asp-for="manager.Name" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="manager.Name"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="manager.Password"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" value="@Model.existingManager.Password" asp-for="manager.Password" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="manager.Password"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="manager.IsMedarbejder"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" value="@Model.existingManager.IsMedarbejder"  asp-for="manager.IsMedarbejder" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="manager.IsMedarbejder"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="manager.IsAdmin"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" value="@Model.existingManager.IsAdmin" asp-for="manager.IsAdmin" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="manager.IsAdmin"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="manager.Tlf"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" value="@Model.existingManager.Tlf" asp-for="manager.Tlf" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="manager.Tlf"></span>
+        </div>
+
+
+        @*den følgende knap er forbundet til metoden op post i controller delen som opdaterer*@
+
+        <div class="form-group row">
+            <div class="col-2">
+                <input type="submit" class="btn btn-dark" value="UpdateManager" />
+            </div>
+            <div class="col-5">
+            </div>
+        </div>
+    </form>
+</div>

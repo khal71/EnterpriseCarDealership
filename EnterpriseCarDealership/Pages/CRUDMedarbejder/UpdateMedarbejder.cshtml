@@ -1,0 +1,91 @@
+﻿@page
+@model EnterpriseCarDealership.Pages.CRUDMedarbejder.UpdateMedarbejderModel
+@{
+}
+@*Khaled*@
+<div class="container border" style="padding:20px">
+    <form method="post">
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+
+        @*de følgende input fields tager de tilsvarende attributter af klassen Medarbejder*@
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="medarbejder.Name"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" value="@Model.existingmedarbejder.Name" asp-for="medarbejder.Name" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="medarbejder.Name"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="medarbejder.Password"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" value="@Model.existingmedarbejder.Password" asp-for="medarbejder.Password" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="medarbejder.Password"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="medarbejder.IsMedarbejder"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" value="@Model.existingmedarbejder.IsMedarbejder" asp-for="medarbejder.IsMedarbejder" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="medarbejder.IsMedarbejder"></span>
+        </div>
+     @*   <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="medarbejder.IsAdmin"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" value="@Model.existingmedarbejder.IsAdmin" asp-for="medarbejder.IsAdmin" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="medarbejder.IsAdmin"></span>
+        </div>*@
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="medarbejder.Tlf"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" value="@Model.existingmedarbejder.Tlf" asp-for="medarbejder.Tlf" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="medarbejder.Tlf"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="medarbejder.Adress"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" value="@Model.existingmedarbejder.Adress" asp-for="medarbejder.Adress" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="medarbejder.Adress"></span>
+        </div>
+
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="medarbejder.ManagerId"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" value="@Model.existingmedarbejder.ManagerId" asp-for="medarbejder.ManagerId" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="medarbejder.ManagerId"></span>
+        </div>
+
+
+
+        @*den følgende knap er forbundet til metoden op post i controller delen som opdaterer*@
+        <div class="form-group row">
+            <div class="col-2">
+                <input type="submit" class="btn btn-dark" value="Updatemedarbejder" />
+            </div>
+            <div class="col-5">
+            </div>
+        </div>
+    </form>
+</div>

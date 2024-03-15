@@ -1,0 +1,76 @@
+﻿@page
+@model EnterpriseCarDealership.Pages.CRUDBikeBooking.CreateBikeBookingModel
+@{
+}
+@*Jakob*@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Create Bike Booking?</title>
+</head>
+<body> 
+
+<div class="box">
+<div class="Container">
+ <div class="top-header">
+
+                <header style="font-family: "poppins", sans-serif;">Bike Booking</header>
+        </div>
+            @* de følgende input fields er forbundet med de relaterede attributter i controller delen*@
+    <form method="post">
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+
+        <div class="form-group row">
+            <div class="col-2">
+               @* <label asp-for="CreateBike.StartTime"></label>*@
+            </div>
+            <div class="input-field">
+                <input type="text" placeholder="Start Time" asp-for="CreateBike.StartTime" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="CreateBike.StartTime"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-2">
+@*                <label asp-for="CreateBike.EndTime"></label>
+*@            </div>
+            <div class="input-field">
+                <input type="text" placeholder="End Time"  asp-for="CreateBike.EndTime" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="CreateBike.EndTime"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+@*                <label asp-for="CreateBike.KundeId"></label>
+*@            </div>
+            <div class="input-field">
+                <input type="text" placeholder="Customer ID" asp-for="CreateBike.KundeId" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="CreateBike.KundeId"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                @*<label asp-for="CreateBike.BikeId"></label>*@
+            </div>
+            <div class="input-field">
+                <input type="text" placeholder="Bike ID"  asp-for="CreateBike.BikeId" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="CreateBike.BikeId"></span>
+        </div>
+
+                @*knappen er forbundet med funktionen oppost i controller delen*@
+        <div class="form-group row">
+            <div class="input-field">
+                <input type="submit" class="btn btn-dark" value="Create Bike Booking" />
+            </div>
+            <div class="input-field">
+            </div>
+        </div>
+    </form>
+</div>
+       
+</body>

@@ -1,0 +1,51 @@
+﻿@page
+@model EnterpriseCarDealership.Pages.Login.LoginModel
+@{
+}
+
+@*  //Jakob*@
+<form asp-page-handler="" class="form-horizontal" method="post">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Login </title>
+</head>
+@* her vi har lavet en box med input field med place holder og knapper til til at log in og der er en knape til at husk log in for næste gang  *@
+
+<body>
+    <div class="box">
+        <div class="Container">
+            <div class="top-header">
+                <span>Have an account?</span>
+                <header>Login</header>
+            </div>
+            <div class="input-field">
+                <input type="text" placeholder="Username" class="form-control" name="Name" asp-for="@Model.Name" value="@Model.Name">
+                <i class="bx bx-user"> </i>
+            </div>
+            <div class="input-field" >
+                <input type="text" placeholder="Password" class="form-control" name="Password" asp-for="@Model.Password" value="@Model.Password">
+                <i class="bx bx-lock-alt"> </i>
+            </div>
+            <div class="input-field">
+                <button type="submit" method="post" class="btn btn-dark">Login </button>
+            </div>
+            
+            <div class="bottom">
+                <div class="left">
+                    <input type="checkbox" id="check">
+                    <label for="check">Remember ME</label>
+                </div>
+                <div class="right">
+                    <label><a href="#">Forgot Password?</a></label>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</form>

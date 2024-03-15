@@ -1,0 +1,44 @@
+﻿@page
+@model EnterpriseCarDealership.Pages.CRUDCarBooking.CarPaymentModel
+@{
+}
+@*Jakob*@
+
+  <div class="input-field">
+    <div class="container">
+      <h1>Cart
+        <span class="price" style="color:black">
+          <i class="fa fa-shopping-cart"></i>
+          <b>4</b>
+        </span>
+        </h1>@*følgende modeller henter id'er fra booking*@
+            <p>Car ID: @Model.carbooking.CarId</p>
+            <p>Booking ID: @Model.carbooking.Id</p>
+        @*den del kalder og kalkulerer prisen*@
+            @if (Model.TotalPrice > 0)
+            {
+                <p>Total price: @Model.TotalPrice <span class="=Price" style="color:black"> </span></p>
+            }
+            else
+            {
+                <p>No payment calculation available.</p>
+            }
+        @*knap til at go til index*@
+            <form asp-page-handler="Back" class="form-horizontal" method="post">
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-dark">Index</button>
+                    </div>
+                </div>
+            </form>
+      <hr>
+     
+    </div>
+  </div>
+</div>
+
+
+
+
+
+

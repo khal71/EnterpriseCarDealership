@@ -1,0 +1,97 @@
+﻿@page
+@model EnterpriseCarDealership.Pages.CRUDBikeBooking.IndexBikeBookingModel
+@{
+}
+@*Jakob*@
+<table>
+    <thead>
+          @*de følgende knapper er forbundet med sorterings etoder i controller delen*@
+        <form asp-page-handler="Sort" class="form-horizontal" method="post">
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-dark">View List</button>
+                </div>
+            </div>
+        </form>
+    </thead>
+    <thead>
+        <tr>
+            <th>
+                <form asp-page-handler="Id" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-dark">ID </button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+        
+            <th>
+                <form asp-page-handler="StartTime" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-dark">StartTime </button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+        
+            <th>
+                <form asp-page-handler="EndTime" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-dark">EndTime </button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+        
+            <th>
+                <form asp-page-handler="KundeId" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-dark">Kunde ID </button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+     
+            <th>
+                <form asp-page-handler="BikeId" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-dark">Bike ID </button>
+                        </div>
+                    </div>
+                </form>
+             
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @*den følgende foreach loop henter attributter for hver attribut af bikebooking model. de knapper har delete funktionen og redirect til update page og see payment page*@
+        @if (Model.bikeBookings.Count == 0)
+        {
+                <p>Empty list</p>
+        }
+        else
+        {
+            foreach (var s in Model.bikeBookings)
+            {
+                        <tr>
+                            <td>@s.Id</td>
+                            <td>@s.StartTime</td>
+                            <td>@s.EndTime</td>
+                            <td>@s.KundeId</td>
+                            <td>@s.BikeId</td>
+
+                            <td><form asp-page-handler="Delete" asp-route-id="@s.Id"><button type="submit" class="btn btn-dark">Delete Bike Booking </button></form></td>
+                            <td><a asp-page="UpdateBikeBooking" asp-route-id="@s.Id"><button type="submit" class="btn btn-dark">Update Bike Booking</button> </a></td>
+                    <td><a asp-page="BikePayment" asp-route-id="@s.Id"><button type="submit" class="btn btn-dark">See Payment</button> </a></td>
+                        </tr>
+            }
+        }
+        <a asp-page="/CRUDBikeBooking/CreateBikeBooking" class="btn btn-dark">Create new bike booking </a>
+        <a asp-page="/Management/Management" class="btn btn-dark">Management</a>
+    </tbody>
+</table>
